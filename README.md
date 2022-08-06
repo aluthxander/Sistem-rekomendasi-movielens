@@ -124,11 +124,12 @@ Pada dataset users, jumlah data sebanyak 6040 yang terdiri dari 5 fitur, yaitu :
 
 **Rubrik/Kriteria Tambahan (Opsional)**:
 
-- Melakukan beberapa tahapan yang diperlukan untuk memahami data, contohnya teknik visualisasi data beserta insight atau exploratory data analysis.
 - Dalam proses exploratory data analysis, saya menggunakan beberapa library standar yaitu pandas, matplotlip dan seaborn. karena dataset ini terdiri dari 3 file, hal pertama yang saya lakukan adalah melihat jumlah, bentuk, tipe dan fitur pada masing-masing file tersebut. 
 - Selanjutnya saya melakukan proses Univariate EDA, pada proses ini saya mencari jumlah kategori dan kode unik pada masing-masing fitur dataset. untuk melakukannya saya menggunakan library pandas. disini saya mendapatkan insight berupa jenis genre yang mendominasi semua film pada dataset adalah *Drama* dan *Comedy*.
 - Kemudian saya melakukan Bivariate EDA. Pada proses ini saya ingin mencari korelasi antar fitur. disini saya menggunakan representasi visual dengan menggunakan matplotlib dan seaborn. Hasilnya adalah sebagai berikut :\
-Dari grafik diatas dapat dianalisa bahwa kebanyakan penonton film didominasi oleh penonton dengan usia 25-34 tahun.
+![image](https://user-images.githubusercontent.com/87218279/183256759-c26088c6-8c7a-4e8b-882c-61afe6a2b87a.png)\
+Dari grafik diatas dapat dianalisa bahwa kebanyakan penonton film didominasi oleh penonton dengan usia 25-34 tahun.\
+![image](https://user-images.githubusercontent.com/87218279/183256789-c991df8d-277e-4f29-b4cd-b9ccc3867af3.png)\
 Dari grafik diatas, mayoritas penonton film merupakan laki-laki.
 
 ## Data Preparation
@@ -209,6 +210,7 @@ Dari tabel di atas dapat dilihat bahwa film-film yang direkomendasikan oleh sist
 Sistem collaborative filtering adalah metode yang digunakan untuk memprediksi kegunaan item berdasarkan penilaian pengguna , misalnya cara pemberian rating terhadap suatu item. Metode ini merekomendasikan item-item yang dipilih oleh pengguna lain dengan kemiripan model item dari pengguna saat ini.\
 Untuk model sistem rekomendasi collaborative filtering pada proyek ini, model menghitung skor kecocokan antara pengguna dan movie dengan teknik embedding. Pertama, melakukan proses embedding terhadap data user dan movie. Selanjutnya, lakukan operasi perkalian dot product antara embedding user dan movie. Selain itu, saya juga dapat menambahkan bias untuk setiap user dan resto. Skor kecocokan ditetapkan dalam skala [0,1] dengan fungsi aktivasi sigmoid. Untuk ukuran embeddingnya adalah 32, Model ini menggunakan Binary Crossentropy untuk menghitung loss function, Adam (Adaptive Moment Estimation) sebagai optimizer, dan root mean squared error (RMSE) sebagai metrics evaluation.\
 Dalam proses pelatihan, saya menggunakan 5 epoch dengan batch size 64 dan hasil dari pelatihan dapat dilihat dari grafik berikut :\
+![image](https://user-images.githubusercontent.com/87218279/183256930-9e36edcd-a0d7-4e22-b0db-dd392605a9f4.png)
 Dari proses ini, saya memperoleh nilai root_mean_squared_error sekitar 0.2573 dan val_root_mean_squared_error sebesar 0.2591. Nilai tersebut cukup bagus untuk sistem rekomendasi.
 
 ## Evaluation
@@ -223,7 +225,9 @@ Untuk melakukan evaluasi model ini, saya hanya membandingkan hasil output model 
 Untuk melakukan evaluasi model ini saya menggunakan matrik evaluasi root mean squared error (RMSE). RMSE ini merupakan metode pengukuran dengan mengukur perbedaan nilai dari prediksi sebuah model sebagai estimasi atas nilai yang diobservasi. Root Mean Square Error adalah hasil dari akar kuadrat Keakuratan metode estimasi kesalahan pengukuran ditandai dengan adanya nilai RMSE yang kecil. Secara matematik adalah sebagai berikut:\
 RMSE = ${\sqrt{\frac{1}{n}\Sigma_{i=1}^{n}{\Big(\frac{d_i -f_i}{\sigma_i}\Big)^2}}}$
 
- Metode estimasi yang mempunyai Root Mean Square Error (RMSE) lebih kecil dikatakan lebih akurat daripada metode estimasi yang mempunyai Root Mean Square Error (RMSE) lebih besar.  Untuk hasil pelatihannya dapat dilihat dari grafik berikut:
+ Metode estimasi yang mempunyai Root Mean Square Error (RMSE) lebih kecil dikatakan lebih akurat daripada metode estimasi yang mempunyai Root Mean Square Error (RMSE) lebih besar.  Untuk hasil pelatihannya dapat dilihat dari grafik berikut:\
+ ![image](https://user-images.githubusercontent.com/87218279/183256939-616f30f4-9e95-4246-b631-53230b179bdf.png)
+
 
 ## Kesimpulan
 
