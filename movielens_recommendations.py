@@ -415,7 +415,7 @@ Sebelumnya, user telah memberikan rating ke beberapa film. rating-rating itu aka
 """
 
 print("Testing Model with 1 user")
-movie_df = movies
+movie_df = movies2
 user_id = "new_user"
 movies_watched_by_user = ratings3.sample(7)
 # film yang belum pernah di lihat user
@@ -440,10 +440,18 @@ recommended_movie_ids = [
 
 print("Showing recommendations for user: {}".format(user_id))
 print("====" * 9)
-print("Movies with high ratings from user")
+print("Film-film yang diberi rating tinggi oleh user")
 print("----" * 8)
 top_movies_user = (movies_watched_by_user.sort_values(by="Rating", ascending=False).head(5).MovieID.values)
 movie_df_rows = movie_df[movie_df["MovieID"].isin(top_movies_user)]
 for i, row in enumerate(movie_df_rows.itertuples()):
     i += 1
+    print(i,'.',row.Title, ":", row.Genres)
+
+print("----" * 8)
+print("10 rekomendasi film untuk user")
+print("----" * 8)
+recommended_movies = movie_df[movie_df["MovieID"].isin(recommended_movie_ids)]
+for i, row in enumerate(recommended_movies.itertuples()):
+    i+= 1
     print(i,'.',row.Title, ":", row.Genres)
